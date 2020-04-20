@@ -12,12 +12,24 @@ print(type(groupby))
 for name, group in groupby:
     print('group name:' + name)
     print(group)
+# output
+# group name:mary
+#     book author  publishYear
+# 1  book2   mary         2009
+# 3  book4   mary         1998
+# group name:peter
+#     book author  publishYear
+# 0  book1  peter         2001
+# 2  book3  peter         2020
 
 # find the min max publish year in each group
 for name, group in groupby:
     year_min = group['publishYear'].min()
     year_max = group['publishYear'].max()
     print("publish year for group {}: min {} max {}".format(name, year_min, year_max))
+# output
+# publish year for group mary: min 1998 max 2009
+# publish year for group peter: min 2001 max 2020
 
 # fill NAN with most common element in the group
 data = {'type': ['book', 'magazine', 'magazine', None, None, 'book', 'book', 'magazine'],
